@@ -1,0 +1,41 @@
+﻿@page "/languageslist"
+
+<div class="container">
+    <h2>Languages Details</h2>
+
+    <p>
+        <a href="/">Create New Language</a>
+    </p>
+
+    @if (languages == null)
+    {
+        <p>Loading..</p>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>WebSite</th>
+                    <th>Extensions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var lang in languages)
+                {
+                    <tr>
+                        <td>@lang.Name</td>
+                        <td>@lang.WebSite</td>
+                        <td>@lang.Extensions</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+@code {
+
+    List<ProgrammingLanguage> languages;
+}
